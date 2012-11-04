@@ -101,8 +101,10 @@ while(true){
             //echo $pokeresults;
         }
     }
+    else{
+        sleep(5);
+    }
     empty($matches);
-    //sleep(5);
 }
 ?>
 
