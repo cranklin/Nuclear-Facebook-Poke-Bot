@@ -5,7 +5,7 @@ import cStringIO
 import re
 import time
 
-username = "username"
+username = "email"
 password = "password"
 
 def login():
@@ -75,7 +75,7 @@ def poke():
         buf.close()
         #print curlData
         pokebackdata = re.findall(ur"<div class=\"pokeHeader fsl fwb fcb\"><a href=\"(.*?)\" data-hovercard=\"\/ajax\/hovercard\/user.php\?id=([0-9]*)\">([^<]*)<\/a> has poked you.<\/div>",curlData)
-        pokesuggestdata = re.findall(ur"<div class=\"userSuggestionName\"><span class=\"fwb\"><a href=\"https:\/\/www.facebook.com\/(.*?)\" data-hovercard=\"\/ajax\/hovercard\/user.php\?id=([0-9]*)\">([^<]*)<\/a><\/div>",curlData)
+        pokesuggestdata = re.findall(ur"<div class=\"userSuggestionName\"><span class=\"fwb\"><a href=\"https:\/\/www.facebook.com\/(.*?)\" data-hovercard=\"\/ajax\/hovercard\/user.php\?id=([0-9]*)\">([^<]*)<\/a><\/span><\/div>",curlData)
         #print pokebackdata
         userid = re.findall(ur"\"user\":\"([0-9]*)\"",curlData)
         fb_dtsg = re.findall(ur"name=\"fb_dtsg\" value=\"([^\"]*)",curlData)
