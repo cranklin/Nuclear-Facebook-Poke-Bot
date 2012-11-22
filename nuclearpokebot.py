@@ -80,7 +80,7 @@ def poke():
         userid = re.findall(ur"\"user\":\"([0-9]*)\"",curlData)
         fb_dtsg = re.findall(ur"name=\"fb_dtsg\" value=\"([^\"]*)",curlData)
 
-        if len(pokesuggestdata):
+        if len(pokesuggestdata)>0:
             for victim in pokesuggestdata:
                 victimid = victim[1]
                 postdata = '__a=1&nctr[_mod]=pagelet_pysp&suggestion=1&__user='+str(userid[0])+'&fb_dtsg='+fb_dtsg[0]+'&uid='+str(victimid)
