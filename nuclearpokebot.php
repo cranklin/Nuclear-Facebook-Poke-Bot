@@ -31,7 +31,7 @@ $locale = substr ( $curlData, strpos ( $curlData, "name=\"locale\"" ) );
 $locale = substr ( $locale, strpos ( $locale, "value=" ) + 7 );
 $locale = substr ( $locale, 0, strpos ( $locale, "\"" ) );
 
-$lsd = substr ( $curlData, strpos ( $curlData, "name=\"locale\"" ) );
+$lsd = substr ( $curlData, strpos ( $curlData, "name=\"lsd\"" ) );
 $lsd = substr ( $lsd, strpos ( $lsd, "value=" ) + 7 );
 $lsd = substr ( $lsd, 0, strpos ( $lsd, "\"" ) );
 
@@ -55,7 +55,7 @@ $curlData = curl_exec ( $curl );
 //echo $curlData;
 
 
-// enter infinte poke loop
+// enter infinite poke loop
 while(true){
     $curl = curl_init ();
     curl_setopt ( $curl, CURLOPT_URL, "https://www.facebook.com/pokes?notif_t=poke" );
@@ -102,7 +102,7 @@ while(true){
         }
     }
     else{
-        sleep(5);
+        sleep(3);
     }
     empty($matches);
 }
