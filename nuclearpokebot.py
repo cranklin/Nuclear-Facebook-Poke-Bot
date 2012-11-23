@@ -105,7 +105,7 @@ def poke():
                 buf.close()
                 print "You poked "+victim[2]+"!"
 
-        if len(pokebackdata)>2 and returnpoke:
+        if len(pokebackdata)>0 and returnpoke:
             for victim in pokebackdata:
                 victimid = victim[1]
                 postdata = '__a=1&nctr[_mod]=pagelet_pokes&pokeback=1&__user='+str(userid[0])+'&fb_dtsg='+fb_dtsg[0]+'&uid='+str(victimid)
