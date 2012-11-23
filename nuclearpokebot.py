@@ -5,8 +5,10 @@ import cStringIO
 import re
 import time
 
-username = "email"
+username = "username"
 password = "password"
+returnpoke = True
+newpoke = True
 
 def login():
     os.remove("pycookie.txt")
@@ -80,7 +82,7 @@ def poke():
         userid = re.findall(ur"\"user\":\"([0-9]*)\"",curlData)
         fb_dtsg = re.findall(ur"name=\"fb_dtsg\" value=\"([^\"]*)",curlData)
 
-        if len(pokesuggestdata)>0:
+        if len(pokesuggestdata)>0 and newpoke:
             for victim in pokesuggestdata:
                 victimid = victim[1]
                 postdata = '__a=1&nctr[_mod]=pagelet_pysp&suggestion=1&__user='+str(userid[0])+'&fb_dtsg='+fb_dtsg[0]+'&uid='+str(victimid)
@@ -101,9 +103,9 @@ def poke():
                 c.perform()
                 curlData = buf.getvalue()
                 buf.close()
-                print "You poked "+victim[2]+"!\n"
+                print "You poked "+victim[2]+"!"
 
-        if len(pokebackdata)>0:
+        if len(pokebackdata)>2 and returnpoke:
             for victim in pokebackdata:
                 victimid = victim[1]
                 postdata = '__a=1&nctr[_mod]=pagelet_pokes&pokeback=1&__user='+str(userid[0])+'&fb_dtsg='+fb_dtsg[0]+'&uid='+str(victimid)
@@ -124,7 +126,7 @@ def poke():
                 c.perform()
                 curlData = buf.getvalue()
                 buf.close()
-                print "You return poked "+victim[2]+"!\n"
+                print "You return poked "+victim[2]+"!"
 
         else:
             time.sleep(3)
