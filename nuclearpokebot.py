@@ -11,7 +11,10 @@ returnpoke = True
 newpoke = True
 
 def login():
-    os.remove("pycookie.txt")
+    try:
+        os.remove("pycookie.txt")
+    except:
+        pass
 
     buf = cStringIO.StringIO()
     c = pycurl.Curl()
